@@ -4,7 +4,7 @@
       {
         "gdaldriver":"GTiff",
         "output_type":"mean",
-        "resolution":"0.2",
+        "resolution":"1",
         "type": "writers.gdal",
         "filename":"output.tif"
         }
