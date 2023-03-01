@@ -1,0 +1,10 @@
+{
+  "pipeline":[
+    "input.laz",
+      {
+        "type":"filters.colorization",
+        "raster":"ortho.jp2"
+      },
+      "output.laz"
+  ]
+}
