@@ -119,4 +119,9 @@ for file in "$REPER/data_in/"*.7z ; do    # full path to each txt
    list_no_ground=$(ls $REPER'/data_tmp/no_ground/'${base}'/'*'.laz')
    #echo $list_no_ground
    pdal merge $list_no_ground $REPER'/data_tmp/no_ground/'${base}'_no_ground.laz'
+   
+   # Export du sol en raster
+   pdal pipeline 5_ground_raster.json --readers.las.filename=$REPER'/data_tmp/ground/'${base}'_ground.laz' \
+                            --writers.gdal.filename=$REPER'/data_tmp/ground_raster/'${base}'_ground_raster.tif'
+
 done
