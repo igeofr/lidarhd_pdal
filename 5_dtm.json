@@ -3,8 +3,8 @@
     "input.laz",
       {
         "gdaldriver":"GTiff",
-        "output_type":"all",
-        "resolution":"0.1",
+        "output_type":"mean",
+        "resolution":"0.2",
         "type": "writers.gdal",
         "filename":"output.tif"
         }
