@@ -1,0 +1,17 @@
+{
+  "pipeline":[
+  "input.laz",
+    {
+      "type":"filters.assign",
+      "assignment":"Classification[:]=0"
+    },
+    {
+        "type":"filters.overlay",
+        "dimension":"Classification",
+        "datasource":"batiments_classif.shp",
+        "layer":"batiments_classif",
+        "column":"classif"
+    },
+    "output.laz"
+  ]
+}
