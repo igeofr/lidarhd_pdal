@@ -14,7 +14,7 @@ Extraction du sol et du sur sol depuis les données du programme LidarHD de l'IG
     - `no_ground`
     - `ground_raster`
     - `un7z`
-4. `data_out` : Contiendra les fichiers en sortie (Pas utilisé pour le moment besoin en sortie pas complètement défini)
+4. `data_out` : Contiendra les fichiers en sortie (Pas utilisé pour le moment, besoin en sortie pas complètement défini)
 
 ### Exécution du script
 
