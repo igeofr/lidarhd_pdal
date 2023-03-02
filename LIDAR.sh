@@ -138,7 +138,7 @@ for file in "$REPER/data_in/"*.7z ; do    # full path to each txt
    --stage.las1.filename=$las_no_ground1 --stage.las2.filename=$las_no_ground2 --stage.las3.filename=$las_no_ground3 --stage.las4.filename=$las_no_ground4
 
    # Export du sol en raster
-   pdal pipeline 6_ground_raster.json --readers.las.filename=$REPER'/data_tmp/ground/'${base}'_ground.laz' \
-                            --writers.gdal.filename=$REPER'/data_tmp/ground_raster/'${base}'_ground_raster.tif'
+   # pdal pipeline 6_ground_raster.json --readers.las.filename=$REPER'/data_tmp/ground/'${base}'_ground.laz' \
+   #                         --writers.gdal.filename=$REPER'/data_tmp/ground_raster/'${base}'_ground_raster.tif'
 
 done
