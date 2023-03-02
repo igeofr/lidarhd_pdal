@@ -1,0 +1,26 @@
+{
+  "pipeline":[
+        {
+            "tag" : "las1",
+            "type" : "readers.las"
+        },
+        {
+            "tag" : "las2",
+            "type" : "readers.las"
+        }
+        ,
+        {
+            "tag" : "las3",
+            "type" : "readers.las"
+        }
+        ,
+        {
+            "tag" : "las4",
+            "type" : "readers.las"
+        },
+        {
+            "type" : "filters.merge"
+        },
+        "placeholder.laz"
+  ]
+}
