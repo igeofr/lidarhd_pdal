@@ -111,16 +111,34 @@ for file in "$REPER/data_in/"*.7z ; do    # full path to each txt
    
    done
    
-   list_ground=$(ls $REPER'/data_tmp/ground/'${base}'/'*'.laz')
-   #echo $list_ground
-   pdal merge $list_ground $REPER'/data_tmp/ground/'${base}'_ground.laz'
-   
-   list_no_ground=$(ls $REPER'/data_tmp/no_ground/'${base}'/'*'.laz')
-   #echo $list_no_ground
-   pdal merge $list_no_ground $REPER'/data_tmp/no_ground/'${base}'_no_ground.laz'
+   las_ground1=$(ls $REPER'/data_tmp/ground/'${base}'/'*'.laz' | sed -n 1p)
+   las_ground2=$(ls $REPER'/data_tmp/ground/'${base}'/'*'.laz' | sed -n 2p)
+   las_ground3=$(ls $REPER'/data_tmp/ground/'${base}'/'*'.laz' | sed -n 3p)
+   las_ground4=$(ls $REPER'/data_tmp/ground/'${base}'/'*'.laz' | sed -n 4p)
+
+   echo $las_ground1
+   echo $las_ground2
+   echo $las_ground3
+   echo $las_ground4
+
+   pdal pipeline 5_merge.json --verbose 4 --writers.las.filename=$REPER'/data_tmp/ground/'${base}'_ground.laz' \
+   --stage.las1.filename=$las_ground1 --stage.las2.filename=$las_ground2 --stage.las3.filename=$las_ground3 --stage.las4.filename=$las_ground4
+
+   las_no_ground1=$(ls $REPER'/data_tmp/no_ground/'${base}'/'*'.laz' | sed -n 1p)
+   las_no_ground2=$(ls $REPER'/data_tmp/no_ground/'${base}'/'*'.laz' | sed -n 2p)
+   las_no_ground3=$(ls $REPER'/data_tmp/no_ground/'${base}'/'*'.laz' | sed -n 3p)
+   las_no_ground4=$(ls $REPER'/data_tmp/no_ground/'${base}'/'*'.laz' | sed -n 4p)
+
+   echo $las_no_ground1
+   echo $las_no_ground2
+   echo $las_no_ground3
+   echo $las_no_ground4
+
+   pdal pipeline 5_merge.json --verbose 4 --writers.las.filename=$REPER'/data_tmp/no_ground/'${base}'_no_ground.laz' \
+   --stage.las1.filename=$las_no_ground1 --stage.las2.filename=$las_no_ground2 --stage.las3.filename=$las_no_ground3 --stage.las4.filename=$las_no_ground4
 
    # Export du sol en raster
-   pdal pipeline 5_ground_raster.json --readers.las.filename=$REPER'/data_tmp/ground/'${base}'_ground.laz' \
+   pdal pipeline 6_ground_raster.json --readers.las.filename=$REPER'/data_tmp/ground/'${base}'_ground.laz' \
                             --writers.gdal.filename=$REPER'/data_tmp/ground_raster/'${base}'_ground_raster.tif'
 
 done
