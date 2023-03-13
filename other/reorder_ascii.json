@@ -1,0 +1,19 @@
+{
+  "pipeline":[
+      {
+      "filename":"input.txt",
+      "header":"X Y Z"
+       },
+       {
+        "type":"filters.sort",
+        "dimension":"Y",
+        "order":"ASC"
+      },
+       {
+           "order":"X,Y,Z",
+           "write_header":"false",
+           "delimiter":" ",
+           "filename":"output.txt"
+       }
+  ]
+}
