@@ -21,3 +21,5 @@ Extraction du sol et du sursol depuis les données du programme LidarHD de l'IGN
 1. Paramétrer le fichier de config
 2. Adapter si besoin les différents fichiers json utilisés par pdal (configuration du traitement)
 3. Lancer le script `LIDAR.sh`
+
+![Résultat](lidar_sortie.PNG)
